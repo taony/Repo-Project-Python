@@ -1,6 +1,5 @@
 import re
 import urllib.request
-import  pymysql
 
 
 # -- 获取页面内容
@@ -45,7 +44,7 @@ def spide(url):
         print("未获取数据");
 
 
-spide("https://weheartit.com");
+spide("http://huaban.com/");
 
 
 
