@@ -22,7 +22,8 @@ def getHtml(url):
 
 def saveImg(imgUrl):
     print(imgUrl)
-    path = "d:/" + str(random.randint(1, 99999)) + ".jpg"
+    path = "C:/Users/Administrator/Pictures/" + str(random.randint(1, 99999)) + ".jpg"
     urllib.request.urlretrieve(imgUrl, path)
 
-getHtml("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=1&n=1")
+for i in range(7):
+    getHtml("https://cn.bing.com/HPImageArchive.aspx?format=js&idx="+str(i)+"&n=1")
