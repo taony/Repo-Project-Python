@@ -2,18 +2,22 @@
 """
 从bing网站上，定时下载壁纸图片
 """
-import request
 import urllib
+import urllib.request
 from bs4 import BeautifulSoup
 import re
 import request
 import json
 import random
 
-img_root = "https://cn.bing.com/"
+WEB_ROOT = "https://cn.bing.com/"
+path = "C:/Users/Administrator/Pictures/"
 
 
 class BingSpider:
+
+    def __init__(self, strPath):
+        self.path = strPath
 
     def getHtml(self, url):
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
@@ -21,17 +25,20 @@ class BingSpider:
         html = urllib.request.urlopen(req).read()
         print(html)
         js = json.loads(html)
-        img_url = js["images"][0]["url"]
+        img_url = WEB_ROOT + js["images"][0]["url"]
         print(img_url)
-        self.saveImg(img_root + img_url)
+        self.saveImg(img_url)
 
-    def saveImg(imgUrl):
-        path = "C:/Users/Administrator/Pictures/" + str(random.randint(1, 99999)) + ".jpg"
-        urllib.request.urlretrieve(imgUrl, path)
+    def saveImg(self, imgUrl):
+        strSavePath = self.path + str(random.randint(1, 99999)) + ".jpg"
+        urllib.request.urlretrieve(imgUrl, strSavePath)
 
     def run(self):
         for i in range(7):
-            self.getHtml("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=" + str(i) + "&n=1")
+            _url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=" + str(i) + "&n=1"
+            self.getHtml(_url)
 
-spider=BingSpider()
-spider.run();
+
+if __name__ == "__main__":
+    spider = BingSpider(path)
+    spider.run()
