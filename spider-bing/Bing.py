@@ -1,11 +1,9 @@
 # Author:taonyzhang
 # Email:taonyzhang@gmail.com
-
 # -*-coding:utf-8-*-
 """
 从bing网站上，定时下载壁纸图片
 """
-
 import urllib
 import urllib.request
 import json
