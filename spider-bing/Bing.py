@@ -8,6 +8,7 @@ import urllib
 import urllib.request
 import json
 import random
+import time
 
 WEB_ROOT = "https://cn.bing.com/"
 path = "C:/Users/Administrator/Pictures/"
@@ -29,7 +30,7 @@ class BingSpider:
         self.saveImg(img_url)
 
     def saveImg(self, imgUrl):
-        strSavePath = self.path + str(random.randint(1, 99999)) + ".jpg"
+        strSavePath = self.path + time.strftime('%Y.%m.%d',time.localtime(time.time()))+"_"+str(random.randint(1, 999)) + ".jpg"
         urllib.request.urlretrieve(imgUrl, strSavePath)
 
     def run(self):
