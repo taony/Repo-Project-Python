@@ -13,7 +13,6 @@ import time
 WEB_ROOT = "https://cn.bing.com/"
 path = "C:/Users/Administrator/Pictures/"
 
-
 class BingSpider:
 
     def __init__(self, strPath):
@@ -37,7 +36,6 @@ class BingSpider:
         for i in range(7):
             _url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=" + str(i) + "&n=1"
             self.getHtml(_url)
-
 
 if __name__ == "__main__":
     spider = BingSpider(path)
