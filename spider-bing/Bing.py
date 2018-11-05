@@ -1,7 +1,6 @@
 # Author:taonyzhang
 # Email:taonyzhang@gmail.com
 # -*-coding:utf-8-*-
-
 """
 从bing网站上，定时下载壁纸图片
 """
@@ -37,6 +36,7 @@ class BingSpider:
         for i in range(7):
             _url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=" + str(i) + "&n=1"
             self.getHtml(_url)
+
 
 if __name__ == "__main__":
     spider = BingSpider(path)
