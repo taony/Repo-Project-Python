@@ -14,6 +14,7 @@ import time
 WEB_ROOT = "https://cn.bing.com/"
 path = "C:/Users/Administrator/Pictures/"
 
+
 class BingSpider:
 
     def __init__(self, strPath):
@@ -30,7 +31,8 @@ class BingSpider:
         self.saveImg(img_url)
 
     def saveImg(self, imgUrl):
-        strSavePath = self.path + time.strftime('%Y.%m.%d',time.localtime(time.time()))+"_"+str(random.randint(1, 999)) + ".jpg"
+        strSavePath = self.path + time.strftime('%Y.%m.%d', time.localtime(time.time())) + "_" + str(
+            random.randint(1, 999)) + ".jpg"
         urllib.request.urlretrieve(imgUrl, strSavePath)
 
     def run(self):
